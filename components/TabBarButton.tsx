@@ -9,7 +9,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { Colors } from "@/constants/Colors";
 
-type IconKeys = "index" | "discover" | "saved" | "settings";
+type RouteName = "index" | "discover" | "saved" | "settings" | string;
 
 const TabBarButton = ({
   onPress,
@@ -18,10 +18,10 @@ const TabBarButton = ({
   routeName,
   label,
 }: {
-  onPress: any;
-  onLongPress: any;
+  onPress: () => void;
+  onLongPress: () => void;
   isFocused: boolean;
-  routeName: IconKeys;
+  routeName: RouteName;
   label: any;
 }) => {
   const opacity = useSharedValue(0);
@@ -47,7 +47,7 @@ const TabBarButton = ({
       onLongPress={onLongPress}
       style={styles.tabbarBtn}
     >
-      {icon[routeName]({
+      {icon[routeName as keyof typeof icon]({
         color: isFocused ? Colors.tabIconSelected : Colors.tabIconDefault,
         focused: isFocused,
       })}
