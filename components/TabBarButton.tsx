@@ -9,6 +9,8 @@ import Animated, {
 } from "react-native-reanimated";
 import { Colors } from "@/constants/Colors";
 
+type IconKeys = "index" | "discover" | "saved" | "settings";
+
 const TabBarButton = ({
   onPress,
   onLongPress,
@@ -16,11 +18,11 @@ const TabBarButton = ({
   routeName,
   label,
 }: {
-  onPress: Function;
-  onLongPress: Function;
+  onPress: any;
+  onLongPress: any;
   isFocused: boolean;
-  routeName: string;
-  label: string;
+  routeName: IconKeys;
+  label: any;
 }) => {
   const opacity = useSharedValue(0);
 
