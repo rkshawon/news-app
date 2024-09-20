@@ -1,22 +1,26 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import Header from "@/components/Header";
+import SearchBar from "@/components/SearchBar";
 
-type Props = {}
+type Props = {};
 
 const Page = (props: Props) => {
-  return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
-    </View>
-  )
-}
+  const { top: safeTop } = useSafeAreaInsets();
 
-export default Page
+  return (
+    <View style={[styles.container, { paddingTop: safeTop }]}>
+      <Header />
+      <SearchBar />
+    </View>
+  );
+};
+
+export default Page;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
-})
+});
