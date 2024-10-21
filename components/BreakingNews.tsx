@@ -79,7 +79,7 @@ export default function BreakingNews() {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 10,
-    marginTop: 10,
+    marginTop: 20,
   },
   title: {
     fontSize: 15,
